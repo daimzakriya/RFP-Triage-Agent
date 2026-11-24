@@ -135,7 +135,7 @@ describe("backup provider (mocked network)", () => {
       expect(url).toBe("https://api.mistral.ai/v1/chat/completions");
       expect((init.headers as Record<string, string>).Authorization).toBe("Bearer m");
       expect(body.model).toBe("mistral-small-latest");
-      expect(body.response_format.type).toBe("json_schema");
+      expect(body.response_format.type).toBe("json_object");
       return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(rfp2) }, finish_reason: "stop" }] }), { status: 200 });
     });
     vi.stubGlobal("fetch", fetchMock);
@@ -144,6 +144,24 @@ describe("backup provider (mocked network)", () => {
     delete process.env.GEMINI_RETRY_BUDGET_MS;
     expect(report.decision).toBe("NO_BID");
     expect(report.model.provider).toMatch(/Mistral/);
+  });
+
+  it("waits and retries the backup on a 1-request-per-second rate limit (429)", async () => {
+    vi.useFakeTimers();
+    process.env.FALLBACK_API_KEY = "m";
+    const { callOpenAICompat } = await import("@/lib/openai-compat");
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response('{"message":"Rate limit exceeded"}', { status: 429 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(rfp2) } }] }), { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+    const p = callOpenAICompat("s", "u");
+    await vi.advanceTimersByTimeAsync(2_500);
+    const res = await p;
+    vi.useRealTimers();
+    delete process.env.FALLBACK_API_KEY;
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(res.json).toEqual(rfp2);
   });
 
   it("converts the Gemini schema to valid JSON Schema", async () => {

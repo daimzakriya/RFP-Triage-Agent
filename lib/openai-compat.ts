@@ -35,14 +35,11 @@ export async function callOpenAICompat(system: string, user: string, signal?: Ab
   const model = process.env.FALLBACK_MODEL || "mistral-small-latest";
   const schema = toJsonSchema(GEMINI_RESPONSE_SCHEMA);
 
-  // First try strict JSON-schema output; if the provider rejects that, fall back to plain JSON mode
-  // with the schema spelled out in the prompt. zod validates the result either way.
-  const formats = [
-    { type: "json_schema", json_schema: { name: "triage_report", schema, strict: false } },
-    { type: "json_object" },
-  ];
+  // Plain JSON mode is supported by every OpenAI-compatible provider; the schema is spelled out in the
+  // prompt and zod validates the answer. Free tiers allow ~1 request/second, so on 429 we wait and retry.
+  const waits = [2_000, 5_000, 10_000];
   const problems: string[] = [];
-  for (const response_format of formats) {
+  for (let attempt = 0; attempt <= waits.length; attempt++) {
     const started = Date.now();
     let res: Response;
     try {
@@ -53,8 +50,8 @@ export async function callOpenAICompat(system: string, user: string, signal?: Ab
         body: JSON.stringify({
           model,
           temperature: 0,
-          max_tokens: 16384,
-          response_format,
+          max_tokens: 12000,
+          response_format: { type: "json_object" },
           messages: [
             {
               role: "system",
@@ -68,8 +65,9 @@ export async function callOpenAICompat(system: string, user: string, signal?: Ab
       if (signal?.aborted) throw new LlmError("The analysis timed out.", 504);
       throw new LlmError(`Could not reach the backup model (${(err as Error).message}).`, 503);
     }
-    if (res.status === 400 && response_format.type === "json_schema") {
-      problems.push(`${model}: structured-output mode rejected, retrying in JSON mode`);
+    if ((res.status === 429 || res.status >= 500) && attempt < waits.length) {
+      problems.push(`${model}: HTTP ${res.status}, retrying`);
+      await new Promise((r) => setTimeout(r, waits[attempt]));
       continue;
     }
     if (!res.ok) {
@@ -77,12 +75,12 @@ export async function callOpenAICompat(system: string, user: string, signal?: Ab
       let msg = body;
       try {
         const j = JSON.parse(body);
-        msg = j?.message ?? j?.error?.message ?? body;
+        msg = j?.message ?? j?.error?.message ?? j?.detail ?? body;
       } catch {
         /* keep text */
       }
       throw new LlmError(
-        `Backup model ${model}: HTTP ${res.status} (${String(msg).slice(0, 200)})`,
+        `Backup model ${model}: HTTP ${res.status} (${String(typeof msg === "string" ? msg : JSON.stringify(msg)).slice(0, 200)})`,
         res.status === 429 ? 429 : res.status === 401 || res.status === 403 ? 502 : 503,
       );
     }
@@ -92,7 +90,7 @@ export async function callOpenAICompat(system: string, user: string, signal?: Ab
       return { json: JSON.parse(text.replace(/^```(?:json)?\s*|\s*```$/g, "")), model, latencyMs: Date.now() - started };
     } catch {
       problems.push(`${model}: answer was not valid JSON (finish reason ${data?.choices?.[0]?.finish_reason})`);
-      continue;
+      break;
     }
   }
   throw new LlmError(`The backup model could not produce a report. ${problems.join("; ")}`, 502);
