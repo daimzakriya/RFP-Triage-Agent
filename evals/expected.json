@@ -1,0 +1,26 @@
+{
+  "_about": "Ground truth for the two challenge sample RFPs, read by hand from the PDFs. Used by `npm run eval` to check the agent's dates and decision.",
+  "samples/Sample-RFP-1-Port-Alder-Permit-Automation.pdf": {
+    "decision": "BID",
+    "minScore": 6,
+    "deadlines": {
+      "questions_due": "2026-12-11",
+      "proposal_due": "2027-01-15",
+      "site_visit": null,
+      "work_start": "2027-03-22"
+    },
+    "mustMentionRequirements": ["small business", "three (3) years", "washington", "soc 2", "wcag", "project manager", "$2,000,000|$2m|$2 million"]
+  },
+  "samples/Sample-RFP-2-Larkspur-County-Janitorial.pdf": {
+    "decision": "NO_BID",
+    "maxScore": 3,
+    "fastNoBid": true,
+    "deadlines": {
+      "questions_due": "2026-12-07",
+      "proposal_due": "2026-12-15",
+      "site_visit": "2026-12-03",
+      "work_start": "2027-02-01"
+    },
+    "mustMentionRequirements": ["five (5) years", "30 miles", "fingerprint", "bond", "living wage|$17.25"]
+  }
+}

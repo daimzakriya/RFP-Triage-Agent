@@ -1,0 +1,98 @@
+{
+  "is_rfp": true,
+  "title": "Janitorial and Custodial Services for the County Administration Complex and Satellite Facilities",
+  "solicitation_number": "LC-FM-2027-03",
+  "summary": "Larkspur County, Ohio wants a janitorial contractor to clean five County buildings (about 148,000 square feet) every night, provide a day porter at the Courthouse, and do periodic floor and carpet care. This is physical cleaning work with minimum daily labour hours, background-checked staff, bonds and a local supervisor. It involves no software.",
+  "facts": {
+    "agency": {
+      "value": "Larkspur County, Ohio: Board of County Commissioners, Facilities Management Division",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 1, "quote": "LARKSPUR COUNTY Board of County Commissioners Facilities Management Division" }]
+    },
+    "scope": {
+      "value": "Nightly janitorial cleaning, a Courthouse day porter and periodic floor care (VCT strip/refinish, carpet extraction, windows) at five County facilities totalling about 148,000 sq. ft.",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 3, "quote": "nightly cleaning, day porter service and periodic floor care at five County facilities, totalling approximately 148,000 square feet" }]
+    },
+    "contract_type": {
+      "value": "Fixed monthly price per facility, plus unit rates for extra work; paid monthly in arrears, with deductions for deficient work.",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 8, "quote": "Payment is monthly in arrears, net 30, on approval of the Facilities Manager." }]
+    },
+    "contract_value": {
+      "value": "Not stated",
+      "status": "not_stated",
+      "note": "No budget or estimate is given; bidders price it on Form 1.",
+      "evidence": []
+    },
+    "work_location": {
+      "value": "Five County facilities in Larkspur, Ohio (Administration Building and Courthouse at Courthouse Square, Health Department, Highway Department Offices, Board of Elections)",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 3, "quote": "County Administration Building 220 Courthouse Square 62,000" }]
+    },
+    "period_of_performance": {
+      "value": "February 1, 2027 through January 31, 2029, with two optional one-year renewals",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 8, "quote": "Contract term: February 1, 2027 through January 31, 2029, with two optional one-year renewals" }]
+    },
+    "submission_method": {
+      "value": "Sealed paper proposal: one original and three copies, hand-delivered or mailed to the Clerk of the Board, 220 Courthouse Square, Room 104. No email or fax. Public opening at 2:15 PM.",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 7, "quote": "Submit one (1) original and three (3) copies in a sealed envelope" }, { "page": 7, "quote": "Emailed or faxed proposals will not be accepted." }]
+    }
+  },
+  "deadlines": [
+    { "kind": "site_visit", "label": "Mandatory pre-bid meeting and site walk", "date": "2026-12-03", "time": "9:00 AM", "timezone": "Eastern", "mandatory": true, "status": "stated", "note": "Firms that don't sign in are rejected. No alternate site walk is offered. Location: 220 Courthouse Square, Larkspur, Ohio.", "evidence": [{ "page": 5, "quote": "Mandatory pre-bid meeting and site walk December 3, 2026, 9:00 AM" }, { "page": 3, "quote": "Proposals from firms that did not sign in at the site walk will be rejected as non-responsive." }] },
+    { "kind": "questions_due", "label": "Questions due (email only)", "date": "2026-12-07", "time": "12:00 PM", "timezone": "Eastern", "mandatory": false, "status": "stated", "note": null, "evidence": [{ "page": 5, "quote": "Questions due (email only) December 7, 2026, 12:00 PM" }] },
+    { "kind": "other", "label": "Final addendum issued", "date": "2026-12-09", "time": null, "timezone": null, "mandatory": false, "status": "stated", "note": null, "evidence": [{ "page": 5, "quote": "Final addendum issued December 9, 2026" }] },
+    { "kind": "proposal_due", "label": "Sealed proposals due", "date": "2026-12-15", "time": "2:00 PM", "timezone": "Eastern", "mandatory": true, "status": "stated", "note": "Public opening at 2:15 PM in Room 104.", "evidence": [{ "page": 5, "quote": "Sealed proposals due December 15, 2026, 2:00 PM" }] },
+    { "kind": "award", "label": "Board of Commissioners award", "date": "2027-01-12", "time": null, "timezone": null, "mandatory": false, "status": "stated", "note": null, "evidence": [{ "page": 5, "quote": "Board of Commissioners award January 12, 2027" }] },
+    { "kind": "work_start", "label": "Contract start", "date": "2027-02-01", "time": null, "timezone": null, "mandatory": false, "status": "stated", "note": null, "evidence": [{ "page": 5, "quote": "Contract start February 1, 2027" }] }
+  ],
+  "requirements": [
+    { "category": "past_performance", "text": "At least five years of continuous commercial janitorial experience.", "mandatory": true, "evidence": [{ "page": 7, "quote": "At least five (5) years of continuous experience providing commercial janitorial services." }] },
+    { "category": "past_performance", "text": "Currently servicing at least three facilities of 25,000 sq. ft. or more, with references (Form 3).", "mandatory": true, "evidence": [{ "page": 7, "quote": "Currently servicing at least three (3) facilities of 25,000 sq. ft. or more under contract" }] },
+    { "category": "staffing", "text": "Local supervisor within 30 miles of the Administration Building, reachable during all service hours and on site within one hour.", "mandatory": true, "evidence": [{ "page": 7, "quote": "A local supervisor based within 30 miles of the County Administration Building" }] },
+    { "category": "staffing", "text": "Minimum labour hours per service day for each facility (e.g. 28 hours at the Administration Building); bids showing fewer hours are non-responsive.", "mandatory": true, "evidence": [{ "page": 4, "quote": "Bids that show fewer hours on Form 1 will be considered non-responsive." }] },
+    { "category": "security_clearance", "text": "Every employee must pass an Ohio BCI and FBI fingerprint background check before starting work; results reviewed by the Sheriff's Office.", "mandatory": true, "evidence": [{ "page": 7, "quote": "must pass an Ohio BCI and FBI fingerprint background check" }] },
+    { "category": "staffing", "text": "Pay all employees at least the County Living Wage of $17.25 per hour; uniforms and photo ID badges.", "mandatory": true, "evidence": [{ "page": 7, "quote": "no less than the County Living Wage of $17.25 per" }] },
+    { "category": "insurance_bonding", "text": "Bid guaranty of 10% of the first-year price, a 100% performance bond, a $50,000 fidelity bond, CGL $1M/$2M, auto $1M and Ohio BWC workers' compensation.", "mandatory": true, "evidence": [{ "page": 7, "quote": "Bid guaranty: a bid bond or certified check for 10% of the first-year bid price" }, { "page": 7, "quote": "Performance bond: 100% of the annual contract price" }] },
+    { "category": "certification", "text": "Current Ohio Bureau of Workers' Compensation certificate.", "mandatory": true, "evidence": [{ "page": 7, "quote": "A current Ohio Bureau of Workers’ Compensation certificate." }] },
+    { "category": "set_aside", "text": "No set-aside. There is a 5% price preference for Larkspur County businesses and a 15% MBE/WBE participation goal (good-faith effort on Form 4).", "mandatory": false, "evidence": [{ "page": 7, "quote": "receive a 5% price preference in the comparison of" }] },
+    { "category": "technical", "text": "Green Seal certified (or equivalent) chemicals and HEPA vacuums; contractor supplies all labour, equipment and chemicals.", "mandatory": true, "evidence": [{ "page": 6, "quote": "Chemicals must be Green Seal certified or equivalent." }] },
+    { "category": "other", "text": "Notarized Non-Collusion Affidavit, Drug-Free Workplace Certification and Personal Property Tax affidavit (Forms 5–7).", "mandatory": true, "evidence": [{ "page": 8, "quote": "Signed Non-Collusion Affidavit (Form 5), notarized." }] }
+  ],
+  "fit_factors": [
+    { "id": "service_match", "points": 0, "reason": "This is janitorial and custodial cleaning, physical labour with no software component." },
+    { "id": "team_fit", "points": 0, "reason": "It needs nightly cleaning crews of more than 70 labour hours a day across five buildings in Ohio." },
+    { "id": "eligibility", "points": 0, "reason": "It requires 5 years of janitorial experience, current 25,000+ sq. ft. cleaning contracts and a local supervisor within 30 miles." },
+    { "id": "commercial", "points": 0.5, "reason": "The contract value is not stated. The award goes to the lowest responsive bidder." },
+    { "id": "timeline", "points": 0, "reason": "The mandatory site walk is December 3, 2026 and sealed proposals are due December 15, 2026." }
+  ],
+  "recommendation": "NO_BID",
+  "reasons": [
+    "Not our work: the scope is nightly janitorial cleaning and floor care for 148,000 sq. ft., with no software, automation or AI.",
+    "Pass/fail requirements we can't meet: 5 years of commercial janitorial experience, three current large cleaning contracts and a local supervisor within 30 miles.",
+    "Heavy field obligations: a mandatory in-person site walk, bid and performance bonds, and fingerprint-checked cleaning crews."
+  ],
+  "change_mind": [
+    "The County issued a separate solicitation for software, such as a facilities work-order or inspection app, related to this contract.",
+    "A janitorial prime contractor invited idiaz.io to supply quality-control or shift-logging software as a subcontractor."
+  ],
+  "deal_breakers": [
+    { "text": "The work is janitorial services, not software.", "severity": "blocking", "evidence": [{ "page": 3, "quote": "Larkspur County (the “County”) seeks a qualified janitorial contractor" }] },
+    { "text": "Requires 5 years of continuous commercial janitorial experience.", "severity": "blocking", "evidence": [{ "page": 7, "quote": "At least five (5) years of continuous experience providing commercial janitorial services." }] },
+    { "text": "The pre-bid site walk on December 3, 2026 is mandatory. Firms that don't attend are rejected.", "severity": "verify", "evidence": [{ "page": 3, "quote": "Attendance at the pre-bid meeting and site walk on December 3, 2026 at 9:00 AM is mandatory." }] }
+  ],
+  "open_questions": [
+    "Is there an estimated annual budget or historical contract value?",
+    "Will the County accept bids that subcontract all cleaning labour?"
+  ],
+  "ambiguities": []
+}

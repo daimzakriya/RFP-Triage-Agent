@@ -1,0 +1,190 @@
+{
+  "is_rfp": true,
+  "title": "AI-Assisted Permit Intake and Review Automation Platform",
+  "solicitation_number": "PA-DPI-2026-114",
+  "summary": "The City of Port Alder, Washington wants a cloud-hosted platform that helps people submit complete building and other permit applications the first time. AI would check each application for missing items, pull out key data, route it to the right reviewer and help (not replace) City plan reviewers. Today 41% of applications are sent back as incomplete and it takes a median 38 days to reach first review; the City wants to halve the returns and get first review under 15 days. The work includes an applicant portal, an English/Spanish assistant, a staff dashboard and two-way integration with the City's on-premises permitting system.",
+  "facts": {
+    "agency": {
+      "value": "City of Port Alder (Washington), Department of Permitting & Inspections; Procurement & Contracts Office",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 1, "quote": "CITY OF PORT ALDER Department of Permitting & Inspections Procurement & Contracts Office" }]
+    },
+    "scope": {
+      "value": "Design, build, deploy and support an AI-assisted permit intake and plan-review platform: applicant portal, AI completeness check, classification and routing, plan-review assist with code citations, bilingual applicant assistant, staff dashboard, notifications, PermitCore v9 integration, audit trail, data migration of ~3,200 open applications, training and 90 days of stabilization.",
+      "status": "stated",
+      "note": null,
+      "evidence": [
+        { "page": 3, "quote": "invites qualified firms to submit proposals to design, build, deploy and support an AI-assisted platform for permit intake and plan review" },
+        { "page": 5, "quote": "The selected vendor (“Contractor”) will deliver a cloud-hosted platform" }
+      ]
+    },
+    "contract_type": {
+      "value": "Fixed-price milestone payments for implementation plus annual subscription, hosting and support fees (City Technology Services Agreement).",
+      "status": "stated",
+      "note": "The RFP does not use a formal contract-type label (e.g. FFP or T&M); this is inferred from the payment terms.",
+      "evidence": [{ "page": 12, "quote": "implementation is paid by milestone after City acceptance, net 30 days" }]
+    },
+    "contract_value": {
+      "value": "Not-to-exceed $420,000 for implementation (Phases 1–4) plus the first two years of subscription, hosting and support",
+      "status": "ambiguous",
+      "note": "The term is three years, but the $420,000 cap covers only implementation and the first two years. Year 3 subscription is priced 'for information' and its funding source is not stated.",
+      "evidence": [{ "page": 11, "quote": "the City has budgeted a not-to-exceed amount of $420,000 for implementation (Phases 1–4) plus the first two years of subscription, hosting and support" }]
+    },
+    "work_location": {
+      "value": "Remote from within the United States; Project Manager must attend the kickoff in person in Port Alder, WA. City data must be hosted in US data centers.",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 10, "quote": "The Project Manager must attend the project kickoff in person in Port Alder. All other work may be performed remotely from within the United States." }]
+    },
+    "period_of_performance": {
+      "value": "Three years from Notice to Proceed, with two optional one-year renewals",
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 12, "quote": "Term: three (3) years from Notice to Proceed, with two optional one-year renewals" }]
+    },
+    "submission_method": {
+      "value": "One text-searchable PDF (max 30 pages excluding attachments and cost) uploaded through the Port Alder Bids portal; cost proposal (Attachment C) as a separate file. No email, fax or paper.",
+      "status": "stated",
+      "note": null,
+      "evidence": [
+        { "page": 10, "quote": "Submit one text-searchable PDF of no more than 30 pages (excluding attachments and the cost proposal) through Port Alder Bids" },
+        { "page": 10, "quote": "Emailed, faxed or paper proposals will not be accepted." }
+      ]
+    }
+  },
+  "deadlines": [
+    {
+      "kind": "pre_proposal_conference",
+      "label": "Pre-proposal conference (virtual, optional)",
+      "date": "2026-12-03",
+      "time": "10:00 AM",
+      "timezone": "Pacific",
+      "mandatory": false,
+      "status": "stated",
+      "note": "Held on Microsoft Teams. Email the procurement contact by December 1, 2026 to get the link.",
+      "evidence": [{ "page": 5, "quote": "Pre-proposal conference (virtual, optional) December 3, 2026, 10:00 AM" }]
+    },
+    {
+      "kind": "questions_due",
+      "label": "Written questions due",
+      "date": "2026-12-11",
+      "time": "5:00 PM",
+      "timezone": "Pacific",
+      "mandatory": false,
+      "status": "stated",
+      "note": "By email to the procurement contact, subject “RFP No. PA-DPI-2026-114 Questions”. Answers posted December 18, 2026.",
+      "evidence": [{ "page": 5, "quote": "Deadline for written questions December 11, 2026, 5:00 PM" }]
+    },
+    {
+      "kind": "proposal_due",
+      "label": "Proposals due",
+      "date": "2027-01-15",
+      "time": "3:00 PM",
+      "timezone": "Pacific",
+      "mandatory": true,
+      "status": "stated",
+      "note": "Extended from January 8, 2027 by Addendum No. 1 (issued November 24, 2026), which must be acknowledged on Attachment A.",
+      "evidence": [{ "page": 5, "quote": "The proposal due date is extended from January 8, 2027 to January 15, 2027 at 3:00 PM Pacific." }]
+    },
+    {
+      "kind": "site_visit",
+      "label": "Site visit",
+      "date": null,
+      "time": null,
+      "timezone": null,
+      "mandatory": false,
+      "status": "not_stated",
+      "note": "Not stated. No site visit is scheduled.",
+      "evidence": []
+    },
+    {
+      "kind": "other",
+      "label": "Finalist demonstrations (virtual)",
+      "date": "2027-02-08",
+      "time": null,
+      "timezone": "Pacific",
+      "mandatory": false,
+      "status": "stated",
+      "note": "Stated as the “week of” February 8, 2027; the exact day is not given.",
+      "evidence": [{ "page": 5, "quote": "Finalist demonstrations (virtual) Week of February 8, 2027" }]
+    },
+    {
+      "kind": "award",
+      "label": "Anticipated notice of intent to award",
+      "date": "2027-03-01",
+      "time": null,
+      "timezone": null,
+      "mandatory": false,
+      "status": "stated",
+      "note": null,
+      "evidence": [{ "page": 5, "quote": "Anticipated notice of intent to award March 1, 2027" }]
+    },
+    {
+      "kind": "work_start",
+      "label": "Anticipated contract start (Notice to Proceed)",
+      "date": "2027-03-22",
+      "time": null,
+      "timezone": null,
+      "mandatory": false,
+      "status": "stated",
+      "note": "Anticipated, not fixed.",
+      "evidence": [{ "page": 5, "quote": "Anticipated contract start (Notice to Proceed) March 22, 2027" }]
+    }
+  ],
+  "requirements": [
+    { "category": "set_aside", "text": "Small Business set-aside: fewer than 100 employees and average annual gross receipts under $15 million (3-year average); self-certify on Attachment A. Prime must perform at least 50% of the work by cost.", "mandatory": true, "evidence": [{ "page": 10, "quote": "This RFP is set aside for Small Businesses." }, { "page": 10, "quote": "the prime Proposer must perform at least 50% of the work by cost" }] },
+    { "category": "past_performance", "text": "In business at least 3 years as of the proposal due date.", "mandatory": true, "evidence": [{ "page": 9, "quote": "The Proposer has been in business for at least three (3) years as of the proposal due date." }] },
+    { "category": "past_performance", "text": "At least two AI or workflow-automation projects in the past five years for public-sector or regulated-industry clients; at least one reference from such a client.", "mandatory": true, "evidence": [{ "page": 9, "quote": "The Proposer has completed at least two (2) projects in the past five (5) years that delivered AI or workflow-automation software" }] },
+    { "category": "past_performance", "text": "Three references for comparable work in the last five years (Attachment B).", "mandatory": true, "evidence": [{ "page": 14, "quote": "Provide three references for comparable work completed in the last five years." }] },
+    { "category": "registration", "text": "Registered to do business in Washington State, or register and provide a UBI number before contract execution.", "mandatory": true, "evidence": [{ "page": 9, "quote": "The Proposer is registered to do business in the State of Washington, or will register and provide a Unified Business Identifier (UBI) number" }] },
+    { "category": "staffing", "text": "Named Project Manager and Technical Lead (resumes required); PM attends kickoff in person in Port Alder; all other work remote from within the US.", "mandatory": true, "evidence": [{ "page": 10, "quote": "The Proposer names a Project Manager and a Technical Lead." }] },
+    { "category": "insurance_bonding", "text": "Insurance: CGL $1M/$2M (City as additional insured), professional liability $2M per claim, cyber liability $2M per claim, workers' comp (statutory), auto $1M if vehicles used.", "mandatory": true, "evidence": [{ "page": 12, "quote": "Professional liability (errors and omissions) $2,000,000 per claim" }, { "page": 12, "quote": "Cyber liability, including data breach response $2,000,000 per claim" }] },
+    { "category": "certification", "text": "Hosting environment must hold a current SOC 2 Type II report or FedRAMP authorization; all City data in US data centers.", "mandatory": true, "evidence": [{ "page": 7, "quote": "environment must hold a current SOC 2 Type II report or FedRAMP authorization [M]" }] },
+    { "category": "certification", "text": "SOC 2 Type II report for the Contractor's own organization (desired, scored).", "mandatory": false, "evidence": [{ "page": 7, "quote": "A SOC 2 Type II report for the Contractor’s own organization is desired [D]." }] },
+    { "category": "technical", "text": "WCAG 2.1 Level AA on all public-facing pages.", "mandatory": true, "evidence": [{ "page": 7, "quote": "Accessibility: WCAG 2.1 Level AA for all public-facing pages [M]." }] },
+    { "category": "technical", "text": "Staff SSO (SAML 2.0 or OpenID Connect) with MFA; TLS 1.2+ and encryption at rest; 99.5% availability in business hours.", "mandatory": true, "evidence": [{ "page": 7, "quote": "Staff sign-in through the City’s single sign-on (SAML 2.0 or OpenID Connect) with multi-factor authentication" }, { "page": 7, "quote": "Availability of 99.5% during City business hours, measured monthly [M]." }] },
+    { "category": "skill", "text": "Two-way integration with PermitCore v9 (on-premises; REST and SOAP APIs), Esri ArcGIS lookups, WA L&I contractor license checks, migration of ~3,200 open applications (~1.4 TB).", "mandatory": true, "evidence": [{ "page": 6, "quote": "Two-way integration with the City’s permitting system of record (PermitCore v9" }, { "page": 7, "quote": "Load approximately 3,200 applications that are open at go-live" }] },
+    { "category": "skill", "text": "AI completeness check returning results within 2 minutes; plan-review assist citing code sections; AI may never approve or deny a permit.", "mandatory": true, "evidence": [{ "page": 6, "quote": "Return a plain-language list of missing or deficient items to the applicant within 2 minutes of submission." }] },
+    { "category": "skill", "text": "Applicant assistant in English and Spanish (mandatory); Vietnamese and Russian desired.", "mandatory": true, "evidence": [{ "page": 6, "quote": "English and Spanish are mandatory; Vietnamese and Russian are" }] },
+    { "category": "technical", "text": "Audit trail of every AI output with model version, inputs, timestamp and reviewer action, kept 7 years; City data not used to train models for other customers.", "mandatory": true, "evidence": [{ "page": 6, "quote": "Log every AI output with the model version, inputs, timestamp and the reviewer’s action on it." }, { "page": 8, "quote": "City data must not be used to train or fine-tune models offered to other customers." }] },
+    { "category": "staffing", "text": "Help desk 7 AM–6 PM Pacific weekdays plus 24/7 on-call for Severity 1 (30-minute response, 4-hour resolution).", "mandatory": true, "evidence": [{ "page": 9, "quote": "with emergency on-call coverage for Severity 1 issues at all times" }] }
+  ],
+  "fit_factors": [
+    { "id": "service_match", "points": 4, "reason": "An AI-assisted workflow-automation and compliance platform with a web portal is exactly what idiaz.io builds." },
+    { "id": "team_fit", "points": 1.5, "reason": "Remote work is allowed (only the kickoff is in person), but 24/7 Severity 1 on-call and a 9-month full release are heavy for a small team." },
+    { "id": "eligibility", "points": 1, "reason": "The Small Business set-aside likely favours us, but 3 years in business, two public-sector or regulated AI projects, WA registration and $2M cyber/E&O insurance all need checking." },
+    { "id": "commercial", "points": 0.5, "reason": "The $420,000 cap must cover a large scope (PermitCore integration, 1.4 TB migration, 2 years of hosting), which squeezes margin." },
+    { "id": "timeline", "points": 0.5, "reason": "The January 15, 2027 deadline gives about 7 weeks to write the proposal, but the pilot is due within 120 days of NTP." }
+  ],
+  "recommendation": "BID",
+  "reasons": [
+    "Core match: an AI completeness-check and workflow-automation platform for a regulated permitting process is squarely idiaz.io's work.",
+    "Small Business set-aside, mostly remote delivery (only the PM's kickoff is in person) and US-only hosting suit a small US studio.",
+    "Clear success measures and UAT thresholds (90% completeness agreement, 95% routing accuracy) let a strong AI team stand out in scored demos."
+  ],
+  "change_mind": [
+    "idiaz.io has been in business under 3 years, or cannot show two AI/automation projects for public-sector or regulated clients. Both are pass/fail minimums.",
+    "We cannot get $2M cyber and $2M professional liability insurance before contract execution.",
+    "A realistic estimate for the PermitCore SOAP/REST integration and 1.4 TB migration exceeds the $420,000 cap.",
+    "We cannot staff 24/7 Severity 1 on-call with a 4-hour resolution target."
+  ],
+  "deal_breakers": [
+    { "text": "Minimum qualification: at least 3 years in business by the proposal due date (pass/fail).", "severity": "verify", "evidence": [{ "page": 9, "quote": "The Proposer has been in business for at least three (3) years as of the proposal due date." }] },
+    { "text": "Minimum qualification: two AI/workflow-automation projects for public-sector or regulated clients in the last 5 years (pass/fail).", "severity": "verify", "evidence": [{ "page": 9, "quote": "The Proposer has completed at least two (2) projects in the past five (5) years" }] },
+    { "text": "Proposals above the $420,000 not-to-exceed amount are rejected.", "severity": "verify", "evidence": [{ "page": 11, "quote": "Proposals over the $420,000 not-to-exceed amount will be rejected." }] },
+    { "text": "Two consecutive failed UAT cycles for the same phase are grounds for termination for default.", "severity": "verify", "evidence": [{ "page": 8, "quote": "Two consecutive failed UAT cycles for the same phase is grounds for termination for default." }] }
+  ],
+  "open_questions": [
+    "Is Year 3 subscription funded outside the $420,000 not-to-exceed amount, given the three-year term?",
+    "Can PermitCore v9 be reached from a US cloud environment (VPN or API gateway), and is there a test instance during Discovery?",
+    "Will the City accept a hosting provider's SOC 2 Type II report alone while the Contractor's own SOC 2 is in progress?",
+    "Which model hosting arrangements satisfy 'City data must not be used to train models', for example third-party APIs with zero-retention terms?",
+    "Can the 500-application UAT test set be shared during Discovery to tune the completeness check?"
+  ],
+  "ambiguities": [
+    { "text": "The proposal due date appears as both January 8, 2027 and January 15, 2027. Addendum No. 1 says the later date controls.", "evidence": [{ "page": 1, "quote": "Proposals due January 8, 2027 January 15, 2027, 3:00 PM Pacific" }] },
+    { "text": "The $420,000 not-to-exceed amount covers implementation plus 2 years, but the term is 3 years. It is unclear how Year 3 is funded or evaluated.", "evidence": [{ "page": 15, "quote": "Annual subscription — Year 3 (for information)" }] },
+    { "text": "FR-7 is marked M/D: email notifications are mandatory and SMS is desired.", "evidence": [{ "page": 6, "quote": "SMS notifications are desired." }] }
+  ]
+}
