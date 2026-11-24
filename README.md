@@ -75,6 +75,7 @@ Report ◄──────────── TriageReport JSON ─────
 - **Native structured output.** `responseSchema` makes the model return JSON in our exact shape, and zod validates it again on the server.
 - **Fast enough.** In live runs on the two samples the reports took 35–47 s. When Google's free tier is overloaded it can be slower, so the function is allowed 300 s (the Vercel Hobby limit with Fluid compute). Thinking level `low` gives better judgement on dates and requirements without slowing it down much. (`gemini-2.5-flash` is no longer offered to new API keys, so the code also handles a retired model by moving to the next one.)
 - **Automatic fallback.** If the main model is rate-limited (429), busy (503) or retired (404), it waits briefly and retries once (quota errors skip straight on), then tries `gemini-3.5-flash-lite` (500 requests/day on the free tier) and `gemini-3.7-flash`. Each attempt is capped at 90 s so an overloaded model can't stall the report. If a model rejects an optional setting (400), it retries once with only the essential settings.
+- **Second provider when Gemini is busy.** Google's free tier is often overloaded (HTTP 503) or out of daily quota. If `FALLBACK_API_KEY` is set, the app switches to Mistral's free API (`mistral-small-latest`, OpenAI-compatible, long context) after one short retry. The report says which provider produced it, and the same schema validation and evidence checks apply. See `lib/openai-compat.ts`.
 - **Alternatives considered.** Groq's free tier is faster, but its tokens-per-minute limit is too low for a 100-page document in one call. GitHub Models has smaller context limits. Self-hosted models need paid GPUs.
 
 ### How the fit score and decision are made
@@ -128,7 +129,7 @@ Get a key at <https://aistudio.google.com/app/apikey> (free, no card).
 Useful scripts:
 
 ```bash
-npm test                 # 31 unit tests: PDF reading, quote/date verification, scoring, Gemini client (mocked)
+npm test                 # 33 unit tests: PDF reading, quote/date verification, scoring, Gemini client (mocked)
 npm run eval             # live run on both sample RFPs against the ground truth (uses your key)
 npm run eval -- --fixture  # same checks offline, using recorded answers
 npm run typecheck
@@ -142,7 +143,7 @@ npx tsx scripts/dump-pages.ts samples/Sample-RFP-1-Port-Alder-Permit-Automation.
 
 1. Push this folder to a GitHub repository. `.env.local` is git-ignored, so the key never enters the repo.
 2. On <https://vercel.com/new>, import the repo. The framework is detected as Next.js; keep the defaults.
-3. Under **Environment Variables**, add `GEMINI_API_KEY`. Optional: `GEMINI_MODEL`, `GEMINI_FALLBACK_MODELS`, `GEMINI_THINKING_LEVEL`, `RATE_LIMIT_PER_10_MIN`.
+3. Under **Environment Variables**, add `GEMINI_API_KEY`, plus `FALLBACK_API_KEY` (a free Mistral key from console.mistral.ai) so reviewers still get a report when Gemini is busy. Optional: `GEMINI_MODEL`, `GEMINI_FALLBACK_MODELS`, `GEMINI_THINKING_LEVEL`, `RATE_LIMIT_PER_10_MIN`.
 4. Deploy, open the URL and upload a sample RFP.
 
 The API route sets `maxDuration = 300` (the Hobby maximum with Fluid compute, which is on by default for new projects). There's a light per-IP rate limit (12 analyses per 10 minutes per server instance) to protect the free model quota on a public link.
@@ -157,7 +158,8 @@ app/api/analyze/route.ts     POST endpoint: validation, rate limit, timeout
 components/                  Report, BidDesk, Evidence badges, SourceViewer
 lib/pdf.ts                   PDF reading and cleaning (browser + Node)
 lib/prompt.ts                System prompt with ground rules and rubric
-lib/gemini.ts                Gemini REST client, response schema, fallback
+lib/gemini.ts                Gemini REST client, response schema, model fallback
+lib/openai-compat.ts         Backup provider (Mistral or any OpenAI-compatible API)
 lib/schema.ts                zod schema for the model answer and report types
 lib/verify.ts                Quote search, date checks, addendum detection
 lib/score.ts                 Rubric, score cap, decision rule

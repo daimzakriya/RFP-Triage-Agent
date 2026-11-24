@@ -1,4 +1,5 @@
-import { callGemini, LlmError } from "./gemini";
+import { callGemini, LlmError, type LlmResult } from "./gemini";
+import { callOpenAICompat, fallbackConfigured } from "./openai-compat";
 import { systemPrompt, userPrompt } from "./prompt";
 import { ModelOutputSchema, type FactKey, type ModelOutput, type ReviewFlag, type TriageReport } from "./schema";
 import { decide, scoreFactors } from "./score";
@@ -100,6 +101,23 @@ export function buildReport(args: {
 export async function analyzeDocument(pages: string[], fileName: string, signal?: AbortSignal): Promise<TriageReport> {
   const system = systemPrompt();
   const user = userPrompt(pages);
-  const res = await callGemini(system, user, signal);
-  return buildReport({ pages, fileName, modelJson: res.json, model: { provider: "Google Gemini", name: res.model, latencyMs: res.latencyMs } });
+  const backup = fallbackConfigured();
+
+  let res: LlmResult;
+  let provider = "Google Gemini";
+  try {
+    res = await callGemini(system, user, signal, { quick: backup });
+  } catch (err) {
+    // Gemini busy, out of quota or unavailable: switch to the backup provider if one is set up.
+    const status = err instanceof LlmError ? err.status : 0;
+    if (!backup || ![429, 502, 503].includes(status)) throw err;
+    try {
+      res = await callOpenAICompat(system, user, signal);
+      provider = "Mistral (backup; Gemini was busy)";
+    } catch (err2) {
+      const first = (err as Error).message.split(" Details:")[0];
+      throw new LlmError(`${first} The backup model also failed: ${(err2 as Error).message}`, (err2 as LlmError).status ?? 503);
+    }
+  }
+  return buildReport({ pages, fileName, modelJson: res.json, model: { provider, name: res.model, latencyMs: res.latencyMs } });
 }

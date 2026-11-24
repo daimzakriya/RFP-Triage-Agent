@@ -119,3 +119,38 @@ describe("Gemini client (mocked network)", () => {
     expect(err.status).toBe(429);
   });
 });
+
+describe("backup provider (mocked network)", () => {
+  it("switches to the OpenAI-compatible backup when Gemini is overloaded", async () => {
+    const { analyzeDocument } = await import("@/lib/analyze");
+    const { readFile } = await import("node:fs/promises");
+    const { extractPdfPages } = await import("@/lib/pdf");
+    const { pages } = await extractPdfPages(new Uint8Array(await readFile("samples/Sample-RFP-2-Larkspur-County-Janitorial.pdf")));
+    process.env.GEMINI_API_KEY = "g";
+    process.env.FALLBACK_API_KEY = "m";
+    process.env.GEMINI_RETRY_BUDGET_MS = "0";
+    const fetchMock = vi.fn(async (url: string, init: RequestInit) => {
+      if (url.includes("googleapis")) return new Response('{"error":{"message":"high demand"}}', { status: 503 });
+      const body = JSON.parse(init.body as string);
+      expect(url).toBe("https://api.mistral.ai/v1/chat/completions");
+      expect((init.headers as Record<string, string>).Authorization).toBe("Bearer m");
+      expect(body.model).toBe("mistral-small-latest");
+      expect(body.response_format.type).toBe("json_schema");
+      return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(rfp2) }, finish_reason: "stop" }] }), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const report = await analyzeDocument(pages, "rfp2.pdf");
+    delete process.env.FALLBACK_API_KEY;
+    delete process.env.GEMINI_RETRY_BUDGET_MS;
+    expect(report.decision).toBe("NO_BID");
+    expect(report.model.provider).toMatch(/Mistral/);
+  });
+
+  it("converts the Gemini schema to valid JSON Schema", async () => {
+    const { toJsonSchema } = await import("@/lib/openai-compat");
+    const js = toJsonSchema(GEMINI_RESPONSE_SCHEMA);
+    expect(js.type).toBe("object");
+    expect(js.properties.deadlines.items.properties.date.type).toEqual(["string", "null"]);
+    expect(JSON.stringify(js)).not.toMatch(/propertyOrdering|"STRING"/);
+  });
+});

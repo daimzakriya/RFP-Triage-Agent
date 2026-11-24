@@ -226,7 +226,13 @@ export default function Home() {
                 <div key={i} className="alert alert-error" role="alert" style={{ marginTop: 10 }}>
                   <span aria-hidden="true">✕</span>
                   <span>
-                    <strong>{e.file}:</strong> {e.message}
+                    <strong>{e.file}:</strong> {e.message.split(" Details:")[0]}
+                    {e.message.includes(" Details:") && (
+                      <details style={{ marginTop: 6 }}>
+                        <summary className="small" style={{ cursor: "pointer" }}>Technical details</summary>
+                        <span className="small">{e.message.split(" Details:")[1]}</span>
+                      </details>
+                    )}
                   </span>
                 </div>
               ))}

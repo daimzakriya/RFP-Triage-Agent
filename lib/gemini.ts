@@ -173,7 +173,12 @@ export function generationConfig(model: string, safe = false) {
   };
 }
 
-export async function callGemini(system: string, user: string, signal?: AbortSignal): Promise<LlmResult> {
+export async function callGemini(
+  system: string,
+  user: string,
+  signal?: AbortSignal,
+  opts: { quick?: boolean } = {},
+): Promise<LlmResult> {
   const key = process.env.GEMINI_API_KEY;
   if (!key) {
     throw new LlmError(
@@ -233,7 +238,8 @@ export async function callGemini(system: string, user: string, signal?: AbortSig
         attempts.push(`${model}: HTTP ${res.status}${detail ? ` (${detail})` : ""}`);
         lastStatus = res.status === 429 ? 429 : 503;
         // Overloaded: wait briefly and retry once. Quota used up (429): retrying only wastes requests, so fall back now.
-        const waits = [3_000, 8_000, 15_000];
+        // With a backup provider configured, don't spend long waiting on a busy Gemini.
+        const waits = opts.quick ? [2_000] : [3_000, 8_000, 15_000];
         if (res.status !== 429 && busyRetries < waits.length && Date.now() - startedAll + waits[busyRetries] < BUDGET_MS) {
           await sleep(waits[busyRetries]);
           busyRetries++;
